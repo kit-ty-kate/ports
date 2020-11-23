@@ -18,7 +18,7 @@ LIB_DEPENDS=	libdvbcsa.so:multimedia/libdvbcsa
 USES=		compiler:c++11-lang gmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	decke
-GH_TAGNAME=	84070b5
+GH_TAGNAME=	192be40
 
 CFLAGS=		-I${LOCALBASE}/include
 LDFLAGS=	-L${LOCALBASE}/lib

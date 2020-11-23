@@ -1,14 +1,6 @@
---- src/base/Thread.cpp.orig	2020-11-21 14:52:20 UTC
+--- src/base/Thread.cpp.orig	2020-11-23 10:53:55 UTC
 +++ src/base/Thread.cpp
-@@ -29,7 +29,6 @@
- #define _GNU_SOURCE _GNU_SOURCE
- #endif
- 
--#include <sys/prctl.h>
- #include <unistd.h>
- 
- namespace base {
-@@ -120,7 +119,7 @@ namespace base {
+@@ -123,7 +123,7 @@ namespace base {
  	}
  
  	int Thread::getScheduledAffinity() const {
@@ -17,7 +9,7 @@
  	}
  
  	bool Thread::setPriority(const Priority priority) {
-@@ -153,7 +152,11 @@ namespace base {
+@@ -156,7 +156,11 @@ namespace base {
  		const int minPriority = sched_get_priority_min(policy);
  		const int maxPriority = sched_get_priority_max(policy);
  		const int linuxPriority = minPriority + ((maxPriority - minPriority) * factor);
