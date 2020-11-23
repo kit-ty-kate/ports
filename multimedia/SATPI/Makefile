@@ -18,11 +18,16 @@ LIB_DEPENDS=	libdvbcsa.so:multimedia/libdvbcsa
 USES=		compiler:c++11-lang gmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	decke
-GH_TAGNAME=	190f5d6
+GH_TAGNAME=	84070b5
 
 CFLAGS=		-I${LOCALBASE}/include
 LDFLAGS=	-L${LOCALBASE}/lib
 
 ALL_TARGET=	satpi
+
+PLIST_FILES=	bin/satpi
+
+do-install:
+	${INSTALL_PROGRAM} ${WRKSRC}/satpi ${STAGEDIR}${PREFIX}/bin
 
 .include <bsd.port.mk>

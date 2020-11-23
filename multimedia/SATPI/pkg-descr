@@ -1,0 +1,14 @@
+SatPI is an SAT>IP or DVB>IP server for linux, suitable for running on an
+Raspberry Pi, BeagleBone, Vu+ receiver or any other Linux machine.
+
+Currently supporting:
+* DVB-S(2), DVB-T(2) and DVB-C
+* Web Interface for monitoring and configuring
+* Transform for example DVB-S(2) requests to DVB-C
+* RTP/AVP over UDP and TCP
+* Decrypting of channels via DVB-API protocol implemented by OSCam
+* FILE input, reading from an TS File
+* STREAMER input, reading from an multicast/unicast input
+* CHILDPIPE input, reading from an PIPE input for example wget
+
+WWW: https://barracuda09.github.io/SATPI

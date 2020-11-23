@@ -1,0 +1,11 @@
+--- Makefile.orig	2020-11-21 14:52:20 UTC
++++ Makefile
+@@ -23,7 +23,7 @@ ifeq "$(RESULT_HAS_ATOMIC_FUNCTIONS)" "1"
+ endif
+ 
+ # Set Compiler Flags
+-CFLAGS += -I ./src -std=c++11 -Wall -Wextra -Winit-self -pthread $(INCLUDES)
++CFLAGS += -I ./src -std=c++1y -Wall -Wextra -Winit-self -pthread $(INCLUDES)
+ 
+ # Build "debug", "release" or "simu"
+ ifeq "$(BUILD)" "debug"
