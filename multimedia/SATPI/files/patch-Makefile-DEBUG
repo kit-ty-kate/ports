@@ -1,0 +1,13 @@
+--- Makefile.orig	2020-11-25 14:12:04.070112000 +0100
++++ Makefile	2020-11-25 14:12:46.863788000 +0100
+@@ -6,8 +6,8 @@
+ CXX ?= $(CXXPREFIX)g++$(CXXSUFFIX)
+ 
+ # Check compiler support for some functions
+-RESULT_HAS_NP_FUNCTIONS := $(shell $(CXX) -o npfunc checks/npfunc.cpp -pthread 2> /dev/null ; echo $$? ; rm -rf npfunc)
+-RESULT_HAS_ATOMIC_FUNCTIONS := $(shell $(CXX) -o atomic checks/atomic.cpp 2> /dev/null ; echo $$? ; rm -rf atomic)
++RESULT_HAS_NP_FUNCTIONS := $(shell $(CXX) -o npfunc checks/npfunc.cpp -pthread ; echo $$? ; rm -rf npfunc)
++RESULT_HAS_ATOMIC_FUNCTIONS := $(shell $(CXX) -o atomic checks/atomic.cpp ; echo $$? ; rm -rf atomic)
+ 
+ # Includes needed for proper compilation
+ INCLUDES +=
