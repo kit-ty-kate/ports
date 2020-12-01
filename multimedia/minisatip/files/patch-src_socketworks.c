@@ -13,7 +13,7 @@
  	setsockopt(id, IPPROTO_IP, IP_TOS, &d, sizeof(d));
  
  	d = prio;
-+#if defined(SO_PRORITY)
++#if defined(SO_PRIORITY)
  	setsockopt(id, SOL_SOCKET, SO_PRIORITY, &d, sizeof(d));
 +#endif
  }
