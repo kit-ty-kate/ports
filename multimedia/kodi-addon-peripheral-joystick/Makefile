@@ -2,9 +2,8 @@
 # $FreeBSD: head/multimedia/kodi-addon-peripheral-joystick/Makefile 550443 2020-09-28 19:59:57Z zeising $
 
 PORTNAME=	kodi-addon-peripheral-joystick
-PORTVERSION=	1.4.9
-PORTREVISION=	1
-DISTVERSIONSUFFIX=	-Leia
+PORTVERSION=	1.7.1
+DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
 
 MAINTAINER=	rozhuk.im@gmail.com

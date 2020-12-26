@@ -1,6 +1,6 @@
 lib/kodi/addons/peripheral.joystick/peripheral.joystick.so
-lib/kodi/addons/peripheral.joystick/peripheral.joystick.so.1.4.9
-lib/kodi/addons/peripheral.joystick/peripheral.joystick.so.18.7
+lib/kodi/addons/peripheral.joystick/peripheral.joystick.so.1.7.1
+lib/kodi/addons/peripheral.joystick/peripheral.joystick.so.19.0
 share/kodi/addons/peripheral.joystick/addon.xml
 share/kodi/addons/peripheral.joystick/resources/buttonmaps/xml/android/Hi_keyboard_v0001_p0001_23b.xml
 share/kodi/addons/peripheral.joystick/resources/buttonmaps/xml/android/NVIDIA_Corporation_NVIDIA_Controller_v01.03_v0955_p7210_23b_8a.xml
