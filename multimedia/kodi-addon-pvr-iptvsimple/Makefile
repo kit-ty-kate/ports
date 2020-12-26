@@ -2,8 +2,8 @@
 # $FreeBSD: head/multimedia/kodi-addon-pvr-iptvsimple/Makefile 548722 2020-09-15 09:22:18Z mat $
 
 PORTNAME=	kodi-addon-pvr-iptvsimple
-PORTVERSION=	3.9.8
-DISTVERSIONSUFFIX=	-Leia
+PORTVERSION=	7.1.0
+DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
 
 MAINTAINER=	decke@FreeBSD.org
@@ -22,10 +22,5 @@ USES=		cmake:noninja
 USE_GITHUB=	yes
 GH_ACCOUNT=	kodi-pvr
 GH_PROJECT=	pvr.iptvsimple
-
-post-patch:
-	@${REINPLACE_CMD} 's|rapidxml/rapidxml.hpp|rapidxml.hpp|' \
-		${WRKSRC}/FindRapidxml.cmake \
-		${WRKSRC}/src/PVRIptvData.cpp
 
 .include <bsd.port.mk>
