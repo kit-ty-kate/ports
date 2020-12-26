@@ -1,8 +1,9 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/multimedia/kodi-addon-pvr-hts/Makefile 548722 2020-09-15 09:22:18Z mat $
 
 PORTNAME=	kodi-addon-pvr-hts
 PORTVERSION=	4.4.21
+DISTVERSIONSUFFIX=	-Leia
 CATEGORIES=	multimedia
 
 MAINTAINER=	decke@FreeBSD.org
@@ -20,6 +21,5 @@ USES=		cmake:noninja
 USE_GITHUB=	yes
 GH_ACCOUNT=	kodi-pvr
 GH_PROJECT=	pvr.hts
-GH_TAGNAME=	${PORTVERSION}-Leia
 
 .include <bsd.port.mk>
