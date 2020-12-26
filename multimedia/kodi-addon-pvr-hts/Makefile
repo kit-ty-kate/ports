@@ -2,8 +2,8 @@
 # $FreeBSD: head/multimedia/kodi-addon-pvr-hts/Makefile 548722 2020-09-15 09:22:18Z mat $
 
 PORTNAME=	kodi-addon-pvr-hts
-PORTVERSION=	4.4.21
-DISTVERSIONSUFFIX=	-Leia
+PORTVERSION=	8.1.2
+DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
 
 MAINTAINER=	decke@FreeBSD.org
