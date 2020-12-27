@@ -1,4 +1,4 @@
-# $FreeBSD: head/multimedia/kodi/Makefile 547943 2020-09-07 21:19:41Z tobik $
+# $FreeBSD$
 
 PORTNAME=	kodi
 DISTVERSION=	19.0b2
