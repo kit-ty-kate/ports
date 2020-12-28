@@ -1,5 +1,5 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
-# $FreeBSD: head/multimedia/kodi-addon-pvr-hts/Makefile 548722 2020-09-15 09:22:18Z mat $
+# $FreeBSD$
 
 PORTNAME=	kodi-addon-pvr-hts
 PORTVERSION=	8.1.2
