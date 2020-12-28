@@ -1,5 +1,5 @@
 # Created by: Rozhuk Ivan 2018 <rozhuk.im@gmail.com>
-# $FreeBSD: head/multimedia/kodi-addon-peripheral-joystick/Makefile 550443 2020-09-28 19:59:57Z zeising $
+# $FreeBSD$
 
 PORTNAME=	kodi-addon-peripheral-joystick
 PORTVERSION=	1.7.1
