@@ -250,15 +250,9 @@ CMAKE_ARGS+=	-DCORE_PLATFORM_NAME:STRING="gbm"
 .endif
 
 .if !empty(PORT_OPTIONS:MGBM) && !empty(PORT_OPTIONS:MWAYLAND) || !empty(PORT_OPTIONS:MGBM) && !empty(PORT_OPTIONS:MX11) || !empty(PORT_OPTIONS:MWAYLAND) && !empty(PORT_OPTIONS:MX11)
-PLIST_SUB+=	KODIGBM="@comment " \
-		KODIWAYLAND="@comment " \
-		KODIX11="@comment " \
-		KODICOMBINED=""
+PLIST_SUB+=	COMBINED=""
 .else
-PLIST_SUB+=	KODIGBM=${GBM} \
-		KODIWAYLAND=${WAYLAND} \
-		KODIX11=${X11} \
-		KODICOMBINED="@comment "
+PLIST_SUB+=	COMBINED="@comment "
 .endif
 
 post-patch:
