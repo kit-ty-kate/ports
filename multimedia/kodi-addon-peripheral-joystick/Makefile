@@ -20,7 +20,7 @@ LIB_DEPENDS=	libp8-platform.so:devel/p8-platform \
 RUN_DEPENDS=	kodi:multimedia/kodi
 
 USES=		cmake:noninja
-
+USE_CXXSTD=	c++14
 USE_GITHUB=	yes
 GH_ACCOUNT=	xbmc
 GH_PROJECT=	peripheral.joystick
