@@ -9,7 +9,7 @@ COMMENT=	Award winning media center application
 
 LICENSE=	GPLv2+
 
-ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386
+ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386 powerpc64
 
 BUILD_DEPENDS=	flatbuffers>0:devel/flatbuffers \
 		rapidjson>0:devel/rapidjson \
@@ -57,6 +57,7 @@ KODI_ARCH_amd64=	x86_64
 KODI_ARCH_i386=		x86
 KODI_ARCH_armv7=	armv7
 KODI_ARCH_armv6=	armv6
+KODI_ARCH_powerpc64=	powerpc64
 
 PLIST_SUB=	ARCH=${KODI_ARCH_${ARCH}}
 
