@@ -13,7 +13,8 @@ LICENSE=	GPLv2+
 
 BUILD_DEPENDS=	${LOCALBASE}/include/kodi/addon-instance/PVR.h:multimedia/kodi
 LIB_DEPENDS=	libp8-platform.so:devel/p8-platform \
-		libkodiplatform.so:devel/kodi-platform
+		libkodiplatform.so:devel/kodi-platform \
+		libpugixml.so:textproc/pugixml
 RUN_DEPENDS=	kodi:multimedia/kodi
 
 USES=		cmake:noninja
