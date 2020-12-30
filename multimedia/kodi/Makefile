@@ -1,4 +1,4 @@
-# $FreeBSD$
+# $FreeBSD: head/multimedia/kodi/Makefile 547943 2020-09-07 21:19:41Z tobik $
 
 PORTNAME=	kodi
 DISTVERSION=	19.0b2
@@ -251,9 +251,30 @@ CMAKE_ARGS+=	-DCORE_PLATFORM_NAME:STRING="gbm"
 .endif
 
 .if !empty(PORT_OPTIONS:MGBM) && !empty(PORT_OPTIONS:MWAYLAND) || !empty(PORT_OPTIONS:MGBM) && !empty(PORT_OPTIONS:MX11) || !empty(PORT_OPTIONS:MWAYLAND) && !empty(PORT_OPTIONS:MX11)
-PLIST_SUB+=	COMBINED=""
+PLIST_SUB+=	KODICOMBINED="" \
+		KODIGBM="@comment " \
+		KODIWAYLAND="@comment " \
+		KODIX11="@comment "
 .else
-PLIST_SUB+=	COMBINED="@comment "
+PLIST_SUB+=	KODICOMBINED="@comment "
+
+.if !empty(PORT_OPTIONS:MGBM)
+PLIST_SUB+=	KODIGBM=""
+.else
+PLIST_SUB+=	KODIGBM="@comment "
+.endif
+
+.if !empty(PORT_OPTIONS:MWAYLAND)
+PLIST_SUB+=	KODIWAYLAND=""
+.else
+PLIST_SUB+=	KODIWAYLAND="@comment "
+.endif
+
+.if !empty(PORT_OPTIONS:MX11)
+PLIST_SUB+=	KODIX11=""
+.else
+PLIST_SUB+=	KODIX11="@comment "
+.endif
 .endif
 
 post-patch:
