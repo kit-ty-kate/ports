@@ -14,9 +14,7 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 FLAVORS=	default lite
-default_CONFLICTS_INSTALL=	chrony-lite
 lite_PKGNAMESUFFIX=	-lite
-lite_CONFLICTS_INSTALL=	chrony
 
 USES=		cpe gmake libedit pkgconfig
 
@@ -54,6 +52,7 @@ NETTLE_PREVENTS=	NSS
 
 .if ${FLAVOR:U} == lite
 OPTIONS_EXCLUDE=	DOCS EXAMPLES HTMLDOCS NETTLE NSS NTS
+COMMENT+=	(lite flavor)
 .endif
 
 HTMLDOCS_DESC=	Build HTML docs (IMPLIES DOCS, needs ruby, asciidoctor)
