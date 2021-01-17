@@ -7,15 +7,13 @@ CATEGORIES=	net
 MASTER_SITES=	https://download.tuxfamily.org/chrony/ \
 		LOCAL/mandree
 
-MAINTAINER?=	mandree@FreeBSD.org
-COMMENT?=	System clock synchronization client and server
+MAINTAINER=	mandree@FreeBSD.org
+COMMENT=	System clock synchronization client and server
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		cpe gmake libedit pkgconfig
-
-CONFLICTS?=	chrony-lite-[0-9]*
 
 CPE_VENDOR=	tuxfamily
 
@@ -42,7 +40,7 @@ PORTEXAMPLES=	chrony.conf.example1 chrony.conf.example2 chrony.conf.example3 \
 # XXX: there are also other potentially useful options worth looking into:
 #  --disable-pps        Disable PPS API support
 OPTIONS_DEFINE=		DOCS EXAMPLES HTMLDOCS NTS USER
-OPTIONS_DEFAULT?=	NETTLE NTS USER
+OPTIONS_DEFAULT=	NETTLE NTS USER
 OPTIONS_GROUP=		SECHASH
 OPTIONS_GROUP_SECHASH=	NETTLE NSS
 OPTIONS_SUB=		yes
