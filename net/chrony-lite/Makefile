@@ -8,7 +8,7 @@ COMMENT=	System clock synchronization client and server (lite)
 
 MASTERDIR=	${.CURDIR}/../chrony
 
-CONFLICTS=	chrony-[0-9]*
+CONFLICTS_INSTALL=	chrony
 
 OPTIONS_EXCLUDE=	DOCS EXAMPLES HTMLDOCS NETTLE NSS NTS
 

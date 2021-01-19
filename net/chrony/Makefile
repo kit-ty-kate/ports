@@ -15,7 +15,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		cpe gmake libedit pkgconfig
 
-CONFLICTS?=	chrony-lite-[0-9]*
+CONFLICTS_INSTALL?=	chrony-lite
 
 CPE_VENDOR=	tuxfamily
 
