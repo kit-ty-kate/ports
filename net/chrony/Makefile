@@ -7,13 +7,15 @@ CATEGORIES=	net
 MASTER_SITES=	https://download.tuxfamily.org/chrony/ \
 		LOCAL/mandree
 
-MAINTAINER=	mandree@FreeBSD.org
-COMMENT=	System clock synchronization client and server
+MAINTAINER?=	mandree@FreeBSD.org
+COMMENT?=	System clock synchronization client and server
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		cpe gmake libedit pkgconfig
+
+CONFLICTS?=	chrony-lite-[0-9]*
 
 CPE_VENDOR=	tuxfamily
 
