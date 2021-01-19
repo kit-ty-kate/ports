@@ -1,9 +1,9 @@
 # $FreeBSD: head/multimedia/kodi-addon-vfs.libarchive-devel/Makefile 550400 2020-09-28 05:05:24Z tobik $
 
 PORTNAME=	vfs.libarchive
-DISTVERSION=	1.3.0
+DISTVERSION=	2.0.0
 DISTVERSIONSUFFIX=	-Matrix
-PORTREVISION=	2
+PORTREVISION=	0
 CATEGORIES=	multimedia
 PKGNAMEPREFIX=	kodi-addon-
 PKGNAMESUFFIX=	-devel
@@ -13,10 +13,10 @@ COMMENT=	VFS addon for Kodi to access archives directly
 
 LICENSE=	GPLv2+
 
-BUILD_DEPENDS=	kodi-devel>=19.0.a20200727:multimedia/kodi-devel
+BUILD_DEPENDS=	kodi-devel>=19.0.a20201006:multimedia/kodi-devel
 LIB_DEPENDS=	liblz4.so:archivers/liblz4 \
 		liblzo2.so:archivers/lzo2
-RUN_DEPENDS=	kodi-devel>=19.0.a20200727:multimedia/kodi-devel
+RUN_DEPENDS=	kodi-devel>=19.0.a20201006:multimedia/kodi-devel
 
 USES=		cmake compiler:c++14-lang libarchive ssl
 USE_GITHUB=	yes
