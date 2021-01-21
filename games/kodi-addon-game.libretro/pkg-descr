@@ -3,6 +3,4 @@ as game add-ons. Libretro cores are shared libraries that use the
 Libretro API, so the wrapper is responsible for translating function
 calls between the Libretro API and the Game API.
 
-This port is for multimedia/kodi-devel only.
-
 WWW: https://github.com/kodi-game/game.libretro

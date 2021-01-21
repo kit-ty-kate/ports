@@ -1,6 +1,5 @@
 # $FreeBSD$
 
-
 PORTNAME=	inputstream.adaptive
 DISTVERSION=	2.6.6
 DISTVERSIONSUFFIX=	-Matrix

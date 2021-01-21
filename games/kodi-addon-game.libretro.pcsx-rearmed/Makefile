@@ -1,7 +1,6 @@
 # Created by: Rozhuk Ivan <rozhuk.im@gmail.com>
 # $FreeBSD$
 
-
 PORTNAME=	game.libretro.pcsx-rearmed
 PORTVERSION=	22.0.0.19
 DISTVERSIONSUFFIX=	-Matrix
@@ -35,7 +34,7 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|find_library(PCSX-REARMED_LIB.*|add_subdirectory(depends/common/pcsx-rearmed)|g' \
 		${WRKSRC}/CMakeLists.txt
 
-#post-install:
-#	${RM} -rf ${STAGEDIR}${PREFIX}/lib/libretro
+post-install:
+	${RM} -rf ${STAGEDIR}${PREFIX}/lib/libretro
 
 .include <bsd.port.mk>

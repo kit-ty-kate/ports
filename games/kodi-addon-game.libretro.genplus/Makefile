@@ -1,7 +1,6 @@
 # Created by: Rozhuk Ivan <rozhuk.im@gmail.com>
 # $FreeBSD$
 
-
 PORTNAME=	game.libretro.genplus
 PORTVERSION=	1.7.4.15
 DISTVERSIONSUFFIX=	-Matrix
@@ -10,7 +9,7 @@ CATEGORIES=	games
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sega - MS/GG/MD/CD (Genesis Plus GX)
 
-# TODO: analyze which license this is
+LICENSE=	NONE
 LICENSE_FILE=	${WRKSRC}/depends/common/genplus/LICENSE.txt
 
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml
@@ -37,6 +36,6 @@ post-patch:
 		${WRKSRC}/CMakeLists.txt
 
 post-install:
-	rm -rf ${STAGEDIR}${PREFIX}/lib/libretro
+	${RM} -rf ${STAGEDIR}${PREFIX}/lib/libretro
 
 .include <bsd.port.mk>

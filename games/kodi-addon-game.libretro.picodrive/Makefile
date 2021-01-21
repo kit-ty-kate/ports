@@ -1,7 +1,6 @@
 # Created by: Rozhuk Ivan <rozhuk.im@gmail.com>
 # $FreeBSD$
 
-
 PORTNAME=	game.libretro.picodrive
 PORTVERSION=	1.97.0.19
 DISTVERSIONSUFFIX=	-Matrix
@@ -10,7 +9,7 @@ CATEGORIES=	games
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sega - MS/MD/CD/32X (PicoDrive)
 
-# TODO: check which LICENSE this is
+LICENSE=	NONE
 LICENSE_FILE=	${WRKSRC}/depends/common/picodrive/COPYING
 
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml
@@ -40,6 +39,6 @@ post-patch:
 		${WRKSRC}/CMakeLists.txt
 
 post-install:
-	rm -rf ${STAGEDIR}${PREFIX}/lib/libretro
+	${RM} -rf ${STAGEDIR}${PREFIX}/lib/libretro
 
 .include <bsd.port.mk>

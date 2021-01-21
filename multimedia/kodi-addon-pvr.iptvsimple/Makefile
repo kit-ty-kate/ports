@@ -1,7 +1,6 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
 # $FreeBSD$
 
-
 PORTNAME=	pvr.iptvsimple
 DISTVERSION=	7.3.0
 DISTVERSIONSUFFIX=	-Matrix
