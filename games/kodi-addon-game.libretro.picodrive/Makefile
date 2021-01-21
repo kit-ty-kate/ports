@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	game.libretro.picodrive
-PORTVERSION=	1.92.0.10
-DISTVERSIONSUFFIX=	-Leia
+PORTVERSION=	1.97.0.19
+DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	games
 PKGNAMEPREFIX=	kodi-addon-
 
@@ -23,7 +23,7 @@ GH_ACCOUNT=	kodi-game \
 		libretro:picodrive
 GH_PROJECT=	picodrive:picodrive
 # Keep in sync with: depends/common/picodrive/picodrive.txt
-GH_TAGNAME=	600894ec6eb657586a972a9ecd268f50907a279c:picodrive
+GH_TAGNAME=	046371ad2a3842d938cc74db5a615764ca2ff4ac:picodrive
 
 PLIST_SUB=	SOVERSION=${PORTVERSION}
 
