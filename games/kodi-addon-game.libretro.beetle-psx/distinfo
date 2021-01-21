@@ -1,5 +1,5 @@
-TIMESTAMP = 1585786185
-SHA256 (kodi-game-game.libretro.beetle-psx-0.9.44.12-Leia_GH0.tar.gz) = 26fcf0cdad7cc13ce2d160b7cc227d74161109e53a162a7010c39ca9051e6519
-SIZE (kodi-game-game.libretro.beetle-psx-0.9.44.12-Leia_GH0.tar.gz) = 46486
-SHA256 (libretro-beetle-psx-libretro-c7c8ffd3d2cf1c780ccf98417e60908f9adf970d_GH0.tar.gz) = 61e1495f49a6584038c19bcd797668a430bc74fd94cd7be24fbd9ce31158dfa4
-SIZE (libretro-beetle-psx-libretro-c7c8ffd3d2cf1c780ccf98417e60908f9adf970d_GH0.tar.gz) = 2903983
+TIMESTAMP = 1611230274
+SHA256 (kodi-game-game.libretro.beetle-psx-0.9.44.22-Matrix_GH0.tar.gz) = 5f2c3f8e503f2d18b90d77ca9717b3522727e39750d2aedb7707d7786ad1ba2e
+SIZE (kodi-game-game.libretro.beetle-psx-0.9.44.22-Matrix_GH0.tar.gz) = 46846
+SHA256 (libretro-beetle-psx-libretro-e1836bde1b250d41c6f91c2b6f06444d989f1138_GH0.tar.gz) = 1495fc8f7fcaeb2b1f1ae9d8b5a0ffaad0fc0cd72634746964b42b67bc3a9732
+SIZE (libretro-beetle-psx-libretro-e1836bde1b250d41c6f91c2b6f06444d989f1138_GH0.tar.gz) = 2795575

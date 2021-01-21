@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	game.libretro.beetle-psx
-PORTVERSION=	0.9.44.12
-DISTVERSIONSUFFIX=	-Leia
+PORTVERSION=	0.9.44.22
+DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	games
 PKGNAMEPREFIX=	kodi-addon-
 
@@ -23,7 +23,7 @@ GH_ACCOUNT=	kodi-game \
 		libretro:beetle_psx
 GH_PROJECT=	beetle-psx-libretro:beetle_psx
 # Keep in sync with: depends/common/beetle-psx/beetle-psx.txt
-GH_TAGNAME=	c7c8ffd3d2cf1c780ccf98417e60908f9adf970d:beetle_psx
+GH_TAGNAME=	e1836bde1b250d41c6f91c2b6f06444d989f1138:beetle_psx
 
 PLIST_SUB=	SOVERSION=${PORTVERSION}
 
