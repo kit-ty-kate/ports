@@ -5,22 +5,19 @@ PORTNAME=	peripheral.joystick
 DISTVERSION=	1.7.1
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
-PKGNAMEPREFIX=	kodi-addon-
 
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Joystick support for Kodi
 
 LICENSE=	GPLv2+
 
-BUILD_DEPENDS=	${LOCALBASE}/include/linux/joystick.h:devel/evdev-proto \
-		${LOCALBASE}/include/kodi/addon-instance/Peripheral.h:multimedia/kodi
+BUILD_DEPENDS=	${LOCALBASE}/include/linux/joystick.h:devel/evdev-proto
 LIB_DEPENDS=	libp8-platform.so:devel/p8-platform \
 		libkodiplatform.so:devel/kodi-platform \
 		libtinyxml.so:textproc/tinyxml \
 		libudev.so:devel/libudev-devd
-RUN_DEPENDS=	kodi:multimedia/kodi
 
-USES=		cmake:noninja
+USES=		cmake:noninja kodi
 USE_CXXSTD=	c++14
 USE_GITHUB=	yes
 GH_ACCOUNT=	xbmc
