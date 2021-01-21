@@ -12,9 +12,7 @@ COMMENT=	Joystick support for Kodi
 LICENSE=	GPLv2+
 
 BUILD_DEPENDS=	${LOCALBASE}/include/linux/joystick.h:devel/evdev-proto
-LIB_DEPENDS=	libp8-platform.so:devel/p8-platform \
-		libkodiplatform.so:devel/kodi-platform \
-		libtinyxml.so:textproc/tinyxml \
+LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml \
 		libudev.so:devel/libudev-devd
 
 USES=		cmake:noninja kodi

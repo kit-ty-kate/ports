@@ -11,9 +11,7 @@ COMMENT=	IPTV Live TV and Radio PVR client for Kodi
 
 LICENSE=	GPLv2+
 
-LIB_DEPENDS=	libp8-platform.so:devel/p8-platform \
-		libkodiplatform.so:devel/kodi-platform \
-		libpugixml.so:textproc/pugixml
+LIB_DEPENDS=	libpugixml.so:textproc/pugixml
 
 USES=		cmake:noninja compiler:c++14-lang kodi
 
