@@ -1,10 +1,11 @@
 # Created by: Rozhuk Ivan 2018 <rozhuk.im@gmail.com>
 # $FreeBSD$
 
-PORTNAME=	kodi-addon-peripheral-joystick
-PORTVERSION=	1.7.1
+PORTNAME=	peripheral.joystick
+DISTVERSION=	1.7.1
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
+PKGNAMEPREFIX=	kodi-addon-
 
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Joystick support for Kodi
@@ -23,7 +24,6 @@ USES=		cmake:noninja
 USE_CXXSTD=	c++14
 USE_GITHUB=	yes
 GH_ACCOUNT=	xbmc
-GH_PROJECT=	peripheral.joystick
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|if(CORE_SYSTEM_NAME STREQUAL linux)|if(1)|g' \
