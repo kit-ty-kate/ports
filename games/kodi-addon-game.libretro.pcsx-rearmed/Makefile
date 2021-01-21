@@ -35,7 +35,7 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|find_library(PCSX-REARMED_LIB.*|add_subdirectory(depends/common/pcsx-rearmed)|g' \
 		${WRKSRC}/CMakeLists.txt
 
-post-install:
-	rm -rf ${STAGEDIR}${PREFIX}/lib/libretro
+#post-install:
+#	${RM} -rf ${STAGEDIR}${PREFIX}/lib/libretro
 
 .include <bsd.port.mk>
