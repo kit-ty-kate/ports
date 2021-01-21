@@ -6,17 +6,16 @@ PORTVERSION=	0.9.44.12
 DISTVERSIONSUFFIX=	-Leia
 CATEGORIES=	games
 PKGNAMEPREFIX=	kodi-addon-
-PKGNAMESUFFIX=	-devel
 
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sony - PlayStation (Beetle PSX)
 
 LICENSE=	GPLv2+
 
-BUILD_DEPENDS=	kodi-devel>=19.0.a20200318:multimedia/kodi-devel
+BUILD_DEPENDS=	${LOCALBASE}/include/kodi/AddonBase.h:multimedia/kodi
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml
-RUN_DEPENDS=	kodi-devel>=19.0.a20200318:multimedia/kodi-devel \
-		kodi-addon-game.libretro-devel>=0:multimedia/kodi-addon-game.libretro-devel
+RUN_DEPENDS=	kodi:multimedia/kodi \
+		kodi-addon-game.libretro>=0:games/kodi-addon-game.libretro
 
 USES=		cmake:noninja gmake localbase
 USE_GITHUB=	yes
