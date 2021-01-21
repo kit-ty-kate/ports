@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	game.libretro.pcsx-rearmed
-PORTVERSION=	22.0.0.9
-DISTVERSIONSUFFIX=	-Leia
+PORTVERSION=	22.0.0.19
+DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	games
 PKGNAMEPREFIX=	kodi-addon-
 
@@ -24,7 +24,7 @@ GH_ACCOUNT=	kodi-game \
 		libretro:pcsx_rearmed
 GH_PROJECT=	pcsx_rearmed:pcsx_rearmed
 # Keep in sync with: depends/common/pcsx-rearmed/pcsx-rearmed.txt
-GH_TAGNAME=	3c4ac5bb44b41d23eec217369eaa34f4e155f733:pcsx_rearmed
+GH_TAGNAME=	54686ee7ccbba7220aaf69892ad3d77515478776:pcsx_rearmed
 
 PLIST_SUB=	SOVERSION=${PORTVERSION}
 
