@@ -1,7 +1,7 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	pvr-hts
+PORTNAME=	pvr.hts
 DISTVERSION=	8.2.2
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
@@ -22,6 +22,5 @@ USES=		cmake:noninja compiler:c++17-lang
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	kodi-pvr
-GH_PROJECT=	pvr.hts
 
 .include <bsd.port.mk>
