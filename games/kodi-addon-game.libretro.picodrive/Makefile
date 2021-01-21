@@ -9,7 +9,6 @@ CATEGORIES=	games
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sega - MS/MD/CD/32X (PicoDrive)
 
-LICENSE=	NONE
 LICENSE_FILE=	${WRKSRC}/depends/common/picodrive/COPYING
 
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml

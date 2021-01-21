@@ -9,7 +9,6 @@ CATEGORIES=	games
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sega - MS/GG/MD/CD (Genesis Plus GX)
 
-LICENSE=	NONE
 LICENSE_FILE=	${WRKSRC}/depends/common/genplus/LICENSE.txt
 
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml
