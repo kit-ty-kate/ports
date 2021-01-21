@@ -2,14 +2,15 @@
 # $FreeBSD$
 
 PORTNAME=	game.libretro.genplus
-PORTVERSION=	1.7.4.9
-DISTVERSIONSUFFIX=	-Leia
+PORTVERSION=	1.7.4.15
+DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	games
 PKGNAMEPREFIX=	kodi-addon-
 
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sega - MS/GG/MD/CD (Genesis Plus GX)
 
+# TODO: analyze which license this is
 LICENSE_FILE=	${WRKSRC}/depends/common/genplus/LICENSE.txt
 
 BUILD_DEPENDS=	${LOCALBASE}/include/kodi/AddonBase.h:multimedia/kodi
@@ -23,7 +24,7 @@ GH_ACCOUNT=	kodi-game \
 		libretro:genplus
 GH_PROJECT=	Genesis-Plus-GX:genplus
 # Keep in sync with: depends/common/genplus/genplus.txt
-GH_TAGNAME=	50551066f71f8a5ea782ea3747891fd6d24ebe67:genplus
+GH_TAGNAME=	0164eb9730c0803674a54a3694633a56f4801661:genplus
 
 PLIST_SUB=	SOVERSION=${PORTVERSION}
 
