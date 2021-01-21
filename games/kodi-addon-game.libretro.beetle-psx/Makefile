@@ -5,27 +5,22 @@ PORTNAME=	game.libretro.beetle-psx
 PORTVERSION=	0.9.44.22
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	games
-PKGNAMEPREFIX=	kodi-addon-
 
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sony - PlayStation (Beetle PSX)
 
 LICENSE=	GPLv2+
 
-BUILD_DEPENDS=	${LOCALBASE}/include/kodi/AddonBase.h:multimedia/kodi
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml
-RUN_DEPENDS=	kodi:multimedia/kodi \
-		kodi-addon-game.libretro>=0:games/kodi-addon-game.libretro
+RUN_DEPENDS=	kodi-addon-game.libretro>=0:games/kodi-addon-game.libretro
 
-USES=		cmake:noninja gmake localbase
+USES=		cmake:noninja gmake kodi localbase
 USE_GITHUB=	yes
 GH_ACCOUNT=	kodi-game \
 		libretro:beetle_psx
 GH_PROJECT=	beetle-psx-libretro:beetle_psx
 # Keep in sync with: depends/common/beetle-psx/beetle-psx.txt
 GH_TAGNAME=	e1836bde1b250d41c6f91c2b6f06444d989f1138:beetle_psx
-
-PLIST_SUB=	SOVERSION=${PORTVERSION}
 
 CMAKE_ARGS=	-DBUILD_SHARED_LIBS=1 \
 		-DADDONS_TO_BUILD=${PORTNAME} \
