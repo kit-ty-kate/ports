@@ -16,7 +16,7 @@ LICENSE_FILE=	${WRKSRC}/depends/common/pcsx-rearmed/COPYING
 BUILD_DEPENDS=	${LOCALBASE}/include/kodi/AddonBase.h:multimedia/kodi
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml
 RUN_DEPENDS=	kodi:multimedia/kodi \
-		kodi-addon-game.libretro>=0:multimedia/kodi-addon-game.libretro
+		kodi-addon-game.libretro>=0:games/kodi-addon-game.libretro
 
 USES=		cmake:noninja gmake
 USE_GITHUB=	yes
