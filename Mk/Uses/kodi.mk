@@ -41,8 +41,6 @@ kodi-autoplist:
 		${FIND} -ds ${STAGEDIR}${PREFIX}/share/kodi/addons/${KODI_ADDON} -type f -print | ${SED} -E -e \
 		's,^${STAGEDIR}${PREFIX}/?,,' >> ${TMPPLIST} ; \
 	fi
-	@echo 'Current PLIST'
-	cat ${TMPPLIST}
 .endif
 
 .endif # !defined(_INCLUDE_USES_KODI_MK)
