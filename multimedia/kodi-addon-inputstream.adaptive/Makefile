@@ -22,10 +22,6 @@ GH_ACCOUNT=	peak3d
 
 PLIST_SUB=	SOVERSION=${DISTVERSION}
 
-post-extract:
-	${MV} ${WRKSRC}/inputstream.adaptive/resources/resource.language.sk_sk \
-		${WRKSRC}/inputstream.adaptive/resources/language
-
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/kodi/addons/inputstream.adaptive/libssd_wv.so
 	@cd ${STAGEDIR}${PREFIX} && \
