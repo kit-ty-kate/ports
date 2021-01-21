@@ -22,7 +22,7 @@ USES=		cmake:noninja gmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	kodi-game
 
-# Keep in sync with: depends/common/picodrive/picodrive.txt and depends/common/picodrive/*/.gitmodules
+# Keep in sync with: depends/common/picodrive/picodrive.txt and work/picodrive-*/.gitmodules
 GH_TUPLE=	libretro:picodrive:046371ad2a3842d938cc74db5a615764ca2ff4ac:libretro_picodrive \
 		notaz:libpicofe:76e45c3489a0c32d91744413c198f685b553f6c0:notaz_libpicofe/platform/libpicofe \
 		notaz:cyclone68000:94a9d9a888e72cbfa4db12113cd113cf5e154f7f:notaz_cyclone68000/cpu/cyclone \
