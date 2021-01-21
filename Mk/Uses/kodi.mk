@@ -34,7 +34,7 @@ PLIST_SUB+=	DISTVERSION="${DISTVERSION}"
 .if empty(kodi_ARGS:Mnoautoplist)
 _USES_install+=	820:kodi-autoplist
 kodi-autoplist:
-	@${FIND} -ds ${STAGEDIR}${PREFIX}/lib/kodi/addons/${KODI_ADDON} -type f -print | ${SED} -E -e \
+	@${FIND} -ds ${STAGEDIR}${PREFIX}/lib/kodi/addons/${KODI_ADDON} \( -type f -or -type l \) -print | ${SED} -E -e \
 		's,^${STAGEDIR}${PREFIX}/?,,' >> ${TMPPLIST}
 
 	@if [ -d ${STAGEDIR}${PREFIX}/share/kodi/addons/${KODI_ADDON} ]; then \
