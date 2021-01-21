@@ -1,10 +1,11 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	kodi-addon-pvr-iptvsimple
-PORTVERSION=	7.3.0
+PORTNAME=	pvr.iptvsimple
+DISTVERSION=	7.3.0
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
+PKGNAMEPREFIX=	kodi-addon-
 
 MAINTAINER=	decke@FreeBSD.org
 COMMENT=	IPTV Live TV and Radio PVR client for Kodi
@@ -21,6 +22,5 @@ USES=		cmake:noninja compiler:c++14-lang
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	kodi-pvr
-GH_PROJECT=	pvr.iptvsimple
 
 .include <bsd.port.mk>
