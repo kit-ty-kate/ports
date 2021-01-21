@@ -1,10 +1,11 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	kodi-addon-pvr-hts
-PORTVERSION=	8.2.2
+PORTNAME=	pvr-hts
+DISTVERSION=	8.2.2
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
+PKGNAMEPREFIX=	kodi-addon-
 
 MAINTAINER=	decke@FreeBSD.org
 COMMENT=	Tvheadend PVR addon for Kodi
