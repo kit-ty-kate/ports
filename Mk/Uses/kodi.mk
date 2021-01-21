@@ -22,6 +22,8 @@ IGNORE= Incorrect 'USES+= kodi:${kodi_ARGS}' usage: argument [${arg}] is not rec
 .endfor
 
 BUILD_DEPENDS+=	${LOCALBASE}/include/kodi/AddonBase.h:multimedia/kodi
+LIB_DEPENDS+=	libp8-platform.so:devel/p8-platform \
+		libkodiplatform.so:devel/kodi-platform \
 RUN_DEPENDS+=	kodi:multimedia/kodi
 
 PKGNAMEPREFIX?=	kodi-addon-
