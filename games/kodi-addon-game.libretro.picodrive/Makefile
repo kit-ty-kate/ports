@@ -10,9 +10,11 @@ PKGNAMEPREFIX=	kodi-addon-
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sega - MS/MD/CD/32X (PicoDrive)
 
+# TODO: check which LICENSE this is
 LICENSE_FILE=	${WRKSRC}/depends/common/picodrive/COPYING
 
-BUILD_DEPENDS=	${LOCALBASE}/include/kodi/AddonBase.h:multimedia/kodi
+BUILD_DEPENDS=	${LOCALBASE}/include/kodi/AddonBase.h:multimedia/kodi \
+		${LOCALBASE}/include/minimp3.h:audio/minimp3
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml
 RUN_DEPENDS=	kodi:multimedia/kodi \
 		kodi-addon-game.libretro>=0:games/kodi-addon-game.libretro
@@ -38,6 +40,8 @@ post-extract:
 post-patch:
 	@${REINPLACE_CMD} -e 's|find_library(PICODRIVE_LIB.*|add_subdirectory(depends/common/picodrive)|g' \
 		${WRKSRC}/CMakeLists.txt
+	@${REINPLACE_CMD} -e 's|minimp3/minimp3.h|minimp3.h|g' \
+		${WRKSRC}/depends/common/picodrive/platform/common/mp3_minimp3.c
 
 post-install:
 	rm -rf ${STAGEDIR}${PREFIX}/lib/libretro
