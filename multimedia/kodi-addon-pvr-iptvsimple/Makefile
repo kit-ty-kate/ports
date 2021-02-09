@@ -2,7 +2,7 @@
 # $FreeBSD: head/multimedia/kodi-addon-pvr-iptvsimple/Makefile 562087 2021-01-19 20:57:55Z decke $
 
 PORTNAME=	kodi-addon-pvr-iptvsimple
-PORTVERSION=	7.4.0
+PORTVERSION=	7.4.2
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
 
