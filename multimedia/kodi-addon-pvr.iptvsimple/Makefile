@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	pvr.iptvsimple
-DISTVERSION=	7.3.0
+DISTVERSION=	7.4.2
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
 
