@@ -13,7 +13,7 @@ LICENSE=	GPLv2+
 
 LIB_DEPENDS=	libpugixml.so:textproc/pugixml
 
-USES=		cmake:noninja compiler:c++14-lang kodi
+USES=		cmake:noninja compiler:c++14-lang kodi:noautoplist
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	kodi-pvr
