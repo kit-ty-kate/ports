@@ -9,7 +9,10 @@ CATEGORIES=	games
 MAINTAINER=	rozhuk.im@gmail.com
 COMMENT=	Kodi game addon for Sega - MS/MD/CD/32X (PicoDrive)
 
+LICENSE=	MAME-LICENSE
+LICENSE_NAME=	MAME license
 LICENSE_FILE=	${WRKSRC}/depends/common/picodrive/COPYING
+LICENSE_PERMS=	dist-mirror no-dist-sell pkg-mirror no-pkg-sell auto-accept
 
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml
 RUN_DEPENDS=	kodi-addon-game.libretro>=0:games/kodi-addon-game.libretro
