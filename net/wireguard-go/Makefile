@@ -19,7 +19,7 @@ GH_TUPLE=	golang:crypto:eec23a3978ad:golang_crypto/vendor/golang.org/x/crypto \
 		golang:net:6772e930b67b:golang_net/vendor/golang.org/x/net \
 		golang:sys:16f7687f5001:golang_sys/vendor/golang.org/x/sys
 
-MAKE_ENV+=	GOFLAGS="${GO_BUILDFLAGS}"
+MAKE_ENV+=	${GO_ENV} GOFLAGS="${GO_BUILDFLAGS}"
 
 PLIST_FILES=	bin/${PORTNAME}
 
