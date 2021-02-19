@@ -1,0 +1,38 @@
+# $FreeBSD$
+
+PORTNAME=	wireguard-tools
+PORTVERSION=	1.0.20200827
+CATEGORIES=	net net-vpn
+MASTER_SITES=	https://git.zx2c4.com/wireguard-tools/snapshot/
+
+MAINTAINER=	decke@FreeBSD.org
+COMMENT=	Fast, modern and secure VPN Tunnel
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKDIR}/${DISTNAME}/COPYING
+
+USES=		gmake tar:xz
+
+WRKSRC=		${WRKDIR}/${DISTNAME}/src
+
+MAKE_ARGS+=	WITH_SYSTEMDUNITS=no DEBUG=no
+MAKE_ENV+=	MANDIR="${MANPREFIX}/man" \
+		SYSCONFDIR="${PREFIX}/etc"
+
+OPTIONS_DEFINE=	BASHCOMPLETION WGQUICK
+OPTIONS_DEFAULT=BASHCOMPLETION WGQUICK
+
+BASHCOMPLETION_RUN_DEPENDS=	bash:shells/bash
+BASHCOMPLETION_MAKE_ARGS_ON=	WITH_BASHCOMPLETION=yes
+BASHCOMPLETION_MAKE_ARGS_OFF=	WITH_BASHCOMPLETION=no
+
+WGQUICK_RUN_DEPENDS=	bash:shells/bash
+WGQUICK_MAKE_ARGS_ON=	WITH_WGQUICK=yes
+WGQUICK_MAKE_ARGS_OFF=	WITH_WGQUICK=no
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|g' \
+		${WRKSRC}/completion/wg-quick.bash-completion \
+		${WRKSRC}/wg-quick/freebsd.bash
+
+.include <bsd.port.mk>
