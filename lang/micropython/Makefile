@@ -21,6 +21,8 @@ USES=		gmake pkgconfig python:build tar:xz
 
 PLIST_FILES=	bin/micropython
 
+CFLAGS+=	-Wno-float-conversion
+
 WRKSRC_SUBDIR=	ports/unix
 MAKE_ARGS=	V=1 PYTHON=${PYTHON_CMD} CC=gcc10
 ALL_TARGET=	axtls micropython
