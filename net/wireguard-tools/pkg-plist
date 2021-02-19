@@ -4,3 +4,4 @@ bin/wg
 man/man8/wg.8.gz
 %%BASHCOMPLETION%%share/bash-completion/completions/wg
 %%BASHCOMPLETION%%share/bash-completion/completions/wg-quick
+%%WGQUICK%%@dir etc/wireguard
