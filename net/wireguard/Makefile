@@ -12,8 +12,11 @@ COMMENT=	Fast, modern and secure VPN Tunnel
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKDIR}/${DISTNAME}/COPYING
 
+FLAVORS=	default lite
+lite_PKGNAMESUFFIX=	-lite
+
 USES=		gmake tar:xz
-USE_RC_SUBR=	${PORTNAME}
+USE_RC_SUBR=	wg-quick
 
 WRKSRC=		${WRKDIR}/${DISTNAME}/src
 
@@ -35,6 +38,12 @@ WGQUICK_RUN_DEPENDS=	bash:shells/bash \
 			wireguard-go:net/wireguard-go
 WGQUICK_MAKE_ARGS=	WITH_WGQUICK=yes
 WGQUICK_MAKE_ARGS_OFF=	WITH_WGQUICK=no
+
+.if ${FLAVOR:U} == lite
+USE_RC_SUBR=	wireguard
+OPTIONS_EXCLUDE=BASHCOMPLETION WGQUICK
+COMMENT+=	(lite)
+.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|g' \
