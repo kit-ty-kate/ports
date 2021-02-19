@@ -1,3 +1,3 @@
-TIMESTAMP = 1583151243
-SHA256 (micropython-1.12.tar.xz) = 25938e536f945c706f685f611e048acbca765b0380454dac88132803a5f75790
-SIZE (micropython-1.12.tar.xz) = 16990840
+TIMESTAMP = 1613729321
+SHA256 (micropython-1.14.tar.xz) = 97306156fdeab120a1244626c75a929bb820722afdfc1317dbd5dadef388d94c
+SIZE (micropython-1.14.tar.xz) = 56801160

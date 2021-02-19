@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	micropython
-PORTVERSION=	1.12
+PORTVERSION=	1.14
 CATEGORIES=	lang python
 MASTER_SITES=	http://micropython.org/resources/source/
 
