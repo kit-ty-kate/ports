@@ -1,8 +1,7 @@
 # $FreeBSD: head/multimedia/kodi/Makefile 564049 2021-02-04 17:13:14Z jbeich $
 
 PORTNAME=	kodi
-DISTVERSION=	19.0RC1
-PORTREVISION=	2
+DISTVERSION=	19.0
 CATEGORIES=	multimedia java
 
 MAINTAINER=	yzrh@noema.org
