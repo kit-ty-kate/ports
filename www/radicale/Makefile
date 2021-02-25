@@ -3,7 +3,7 @@
 
 PORTNAME=	radicale
 PORTVERSION=	3.0.6
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -24,7 +24,7 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}bcrypt>=0:security/py-bcrypt@${PY_FLAVOR} \
 TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytest-runner>=0:devel/py-pytest-runner@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}waitress>=0:www/py-waitress@${PY_FLAVOR}
 
-USES=		python:3.3+ shebangfix
+USES=		python:3.5+ shebangfix
 USE_PYTHON=	autoplist distutils
 USERS=		radicale
 GROUPS=		radicale
