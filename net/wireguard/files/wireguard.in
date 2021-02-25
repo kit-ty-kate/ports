@@ -12,6 +12,8 @@
 # wireguard_interfaces (str): List of interfaces to bring up/down
 #                             on start/stop. (eg: "wg0 wg1")
 #                             (default: "")
+# wireguard_env (str):        Environment variables for the userspace
+#                             implementation. (eg: "LOG_LEVEL=debug")
 
 . /etc/rc.subr
 
@@ -25,22 +27,29 @@ reload_cmd="${name}_reload"
 
 wireguard_start()
 {
+	${wireguard_env:+eval export $wireguard_env}
+
 	for interface in ${wireguard_interfaces}; do
-		%%PREFIX%%/bin/wg setconf ${interface} %%ETCDIR%%/${interface}.conf
+		%%PREFIX%%/bin/wg-quick up ${interface}
 	done
 }
 
 wireguard_stop()
 {
 	for interface in ${wireguard_interfaces}; do
-		/sbin/ifconfig ${interface} destroy
+		%%PREFIX%%/bin/wg-quick down ${interface}
 	done
 }
 
 wireguard_reload()
 {
+	${wireguard_env:+eval export $wireguard_env}
+
 	for interface in ${wireguard_interfaces}; do
-		%%PREFIX%%/bin/wg syncconf ${interface} %%ETCDIR%%/${interface}.conf
+		tmpfile="`mktemp`"
+		%%PREFIX%%/bin/wg-quick strip ${interface} > ${tmpfile}
+		%%PREFIX%%/bin/wg syncconf ${interface} ${tmpfile}
+		rm -f ${tmpfile}
 	done
 }
 
