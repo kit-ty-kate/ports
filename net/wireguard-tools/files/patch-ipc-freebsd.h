@@ -1,6 +1,6 @@
---- ipc-freebsd.h.orig	2021-02-26 08:16:11 UTC
+--- ipc-freebsd.h.orig	2021-02-26 13:23:15 UTC
 +++ ipc-freebsd.h
-@@ -0,0 +1,430 @@
+@@ -0,0 +1,428 @@
 +// SPDX-License-Identifier: BSD-2-Clause
 +/*
 + * Copyright (c) 2020 Rubicon Communications, LLC (Netgate)
@@ -265,8 +265,6 @@
 +	if (strncmp("wg", name, 2))
 +		return false;
 +	if (strlen(name) < 3)
-+		return false;
-+	if (!isdigit(name[2]))
 +		return false;
 +	errno = 0;
 +	return 0;
