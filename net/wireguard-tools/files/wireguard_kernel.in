@@ -60,9 +60,9 @@ wireguard_start()
 
 		for route in ${wireguard_routes}; do
 			if [ "${route#*:}" != "${route}" ]; then
-				route -q -n add inet6 ${route} -interface ${interface}
+				route -q -n add -inet6 ${route} -interface ${interface}
 			else
-				route -q -n add inet ${route} -interface ${interface}
+				route -q -n add -inet ${route} -interface ${interface}
 			fi
 		done
 	done
@@ -71,7 +71,22 @@ wireguard_start()
 wireguard_stop()
 {
 	for interface in ${wireguard_interfaces}; do
-		ifconfig ${interface} destroy
+		load_rc_config wireguard_${interface}
+
+		eval wireguard_routes="\${wireguard_${interface}_routes}"
+
+		for route in ${wireguard_routes}; do
+			if [ "${route#*:}" != "${route}" ]; then
+				route -q -n delete -inet6 ${route} -interface ${interface}
+			else
+				route -q -n delete -inet ${route} -interface ${interface}
+			fi
+		done
+
+		ifconfig ${interface} down
+
+		# TODO: panics 13.0-BETA4 reproducible
+		#ifconfig ${interface} destroy
 	done
 }
 
