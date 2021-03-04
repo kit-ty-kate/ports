@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	pvr.hts
-DISTVERSION=	8.2.2
+DISTVERSION=	8.2.3
 DISTVERSIONSUFFIX=	-Matrix
 CATEGORIES=	multimedia
 
