@@ -1,6 +1,6 @@
---- ipc-freebsd.h.orig	2021-02-26 13:23:15 UTC
+--- ipc-freebsd.h.orig	2021-03-07 12:01:57 UTC
 +++ ipc-freebsd.h
-@@ -0,0 +1,428 @@
+@@ -0,0 +1,429 @@
 +// SPDX-License-Identifier: BSD-2-Clause
 +/*
 + * Copyright (c) 2020 Rubicon Communications, LLC (Netgate)
@@ -136,9 +136,8 @@
 +		nvlist_add_binary(nvl_peer, "pre-shared-key", peer->preshared_key, WG_KEY_LEN); /* TODO: preshared-key instead of pre-shared-key */
 +	if (peer->flags & WGPEER_HAS_PERSISTENT_KEEPALIVE_INTERVAL)
 +		nvlist_add_number(nvl_peer, "persistent-keepalive-interval", peer->persistent_keepalive_interval);
-+	if ((peer->endpoint.addr.sa_family == AF_INET || peer->endpoint.addr.sa_family == AF_INET6) &&
-+	    peer->endpoint.addr.sa_len <= sizeof(struct sockaddr))
-+		nvlist_add_binary(nvl_peer, "endpoint", &peer->endpoint.addr, sizeof(struct sockaddr));
++	if (peer->endpoint.addr.sa_family == AF_INET || peer->endpoint.addr.sa_family == AF_INET6)
++		nvlist_add_binary(nvl_peer, "endpoint", &peer->endpoint.addr, peer->endpoint.addr.sa_len);
 +	nvlist_add_bool(nvl_peer, "replace-allowedips", !!(peer->flags & WGPEER_REPLACE_ALLOWEDIPS));
 +	nvlist_add_bool(nvl_peer, "peer-remove", !!(peer->flags & WGPEER_REMOVE_ME));
 +	for_each_wgallowedip(peer, aip) {
@@ -192,8 +191,8 @@
 +	}
 +	if (nvlist_exists_binary(nvl_peer, "endpoint")) {
 +		endpoint = nvlist_get_binary(nvl_peer, "endpoint", &size);
-+		if (size <= sizeof(peer->endpoint.addr))
-+			memcpy(&peer->endpoint.addr, endpoint, endpoint->sa_len);
++		if (size <= sizeof(peer->endpoint))
++			memcpy(&peer->endpoint.addr, endpoint, size);
 +	}
 +	if (nvlist_exists_number(nvl_peer, "rx_bytes"))
 +		peer->rx_bytes = nvlist_get_number(nvl_peer, "rx_bytes");
@@ -266,8 +265,10 @@
 +		return false;
 +	if (strlen(name) < 3)
 +		return false;
++	if (!isdigit(name[2]))
++		return false;
 +	errno = 0;
-+	return 0;
++	return true;
 +}
 +
 +static int get_dgram_socket(void)
