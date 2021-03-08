@@ -22,7 +22,6 @@ load_rc_config $name
 
 : ${wireguard_enable="NO"}
 : ${wireguard_interfaces=""}
-: ${wireguard_env=""}
 
 name=wireguard
 rcvar=wireguard_enable
@@ -42,7 +41,7 @@ wireguard_start()
 		eval wireguard_mtu="\${wireguard_${interface}_mtu}"
 
 		ifconfig ${interface} create
-		%%PREFIX%%/bin/wg setconf ${interface} %%ETCDIR%%/${interface}.conf
+		%%PREFIX%%/bin/wg setconf ${interface} %%PREFIX%%/etc/wireguard/${interface}.conf
 
 		for ip in ${wireguard_ips}; do
 			if [ "${ip#*:}" != "${ip}" ]; then
@@ -85,22 +84,15 @@ wireguard_stop()
 
 		ifconfig ${interface} down
 
-		# TODO: panics 13.0-BETA4 reproducible
-		#ifconfig ${interface} destroy
+		ifconfig ${interface} destroy
 	done
 }
 
 wireguard_reload()
 {
 	for interface in ${wireguard_interfaces}; do
-		%%PREFIX%%/bin/wg syncconf ${interface} %%ETCDIR%%/${interface}.conf
+		%%PREFIX%%/bin/wg syncconf ${interface} %%PREFIX%%/etc/wireguard/${interface}.conf
 	done
 }
-
-load_rc_config $name
-
-: ${wireguard_enable="NO"}
-: ${wireguard_interfaces=""}
-: ${wireguard_env=""}
 
 run_rc_command "$1"
