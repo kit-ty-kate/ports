@@ -14,6 +14,11 @@ LICENSE_FILE=	${WRKDIR}/${DISTNAME}/COPYING
 
 USES=		kmod tar:xz
 
+# This port requires at least FreeBSD 13.0 (12 might be possible
+# in the future).
+IGNORE_FreeBSD_11=      only for FreeBSD 13.0 and 14-CURRENT
+IGNORE_FreeBSD_12=      only for FreeBSD 13.0 and 14-CURRENT
+
 WRKSRC=		${WRKDIR}/${DISTNAME}/src
 
 PLIST_FILES=	${KMODDIR}/if_wg.ko
