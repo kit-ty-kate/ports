@@ -9,7 +9,8 @@ DISTNAME=	wireguard-freebsd-v${PORTVERSION}
 MAINTAINER=	decke@FreeBSD.org
 COMMENT=	WireGuard implementation for the FreeBSD kernel
 
-LICENSE=	BSD2CLAUSE
+LICENSE=	MIT
+LICENSE_FILE=	${WRKDIR}/${DISTNAME}/COPYING
 
 USES=		kmod tar:xz
 
