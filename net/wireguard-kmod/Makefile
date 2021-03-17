@@ -4,7 +4,7 @@ PORTNAME=	wireguard-kmod
 PORTVERSION=	0.0.20210317
 CATEGORIES=	net
 MASTER_SITES=	https://git.zx2c4.com/wireguard-freebsd/snapshot/
-DISTNAME=	wireguard-freebsd-v${PORTVERSION}
+DISTNAME=	wireguard-freebsd-${PORTVERSION}
 
 MAINTAINER=	decke@FreeBSD.org
 COMMENT=	WireGuard implementation for the FreeBSD kernel
