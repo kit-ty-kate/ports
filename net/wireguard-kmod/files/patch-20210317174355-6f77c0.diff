@@ -1,0 +1,220 @@
+From 6f77c05f166daa44089dfd5b34792a8198bc3877 Mon Sep 17 00:00:00 2001
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Date: Wed, 17 Mar 2021 17:43:55 -0600
+Subject: compat: backport to FreeBSD 12
+
+This should allow us to get more testing coverage earlier.
+
+This port here is also a bit janky. I really don't like the taskqgroup
+business, having to copy and paste those structs. And this isn't well
+tested, either. But, it's a start.
+
+This distinguishes between compat.h and support.h, though both header
+files are intended to operate in more or less the same way.  It's
+important to keep some discipline between things that we're backporting
+and things that aren't _yet_ upstream or are shims for OpenBSD.
+
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+---
+ src/Makefile    |  6 +++--
+ src/compat.h    | 71 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/support.c   | 20 ----------------
+ src/support.h   | 18 +++++++++++++--
+ src/wg_cookie.c |  1 +
+ src/wg_noise.c  |  3 ++-
+ 8 files changed, 97 insertions(+), 31 deletions(-)
+ create mode 100644 src/compat.h
+ delete mode 100644 src/support.c
+
+--- Makefile
++++ Makefile
+@@ -1,9 +1,11 @@
+ # $FreeBSD$
+ 
+-KMOD=   if_wg
++KMOD= if_wg
+ 
+ SRCS= opt_inet.h opt_inet6.h device_if.h bus_if.h ifdi_if.h
+ 
+-SRCS+= if_wg.c wg_noise.c wg_cookie.c crypto.c support.c
++SRCS+= if_wg.c wg_noise.c wg_cookie.c crypto.c
++
++CFLAGS+= -include compat.h
+ 
+ .include <bsd.kmod.mk>
+diff --git a/src/compat.h b/src/compat.h
+new file mode 100644
+index 000000000000..56115db28cc8
+--- /dev/null
++++ compat.h
+@@ -0,0 +1,71 @@
++/* SPDX-License-Identifier: MIT
++ *
++ * Copyright (C) 2021 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
++ *
++ * compat.h contains functions that are backported from FreeBSD's main branch. It is different from
++ * support.h, which is for things that aren't _yet_ upstream or from OpenBSD.
++ */
++
++#include <sys/param.h>
++#if __FreeBSD_version < 1300000
++#define VIMAGE
++
++#include <sys/types.h>
++#include <sys/limits.h>
++#include <sys/endian.h>
++#include <sys/socket.h>
++#include <sys/libkern.h>
++#include <sys/malloc.h>
++#include <sys/proc.h>
++#include <sys/lock.h>
++#include <sys/smp.h>
++#include <sys/gtaskqueue.h>
++#include <sys/socketvar.h>
++#include <sys/protosw.h>
++#include <net/vnet.h>
++#include <net/if.h>
++#include <net/if_var.h>
++#include <vm/uma.h>
++
++#define taskqgroup_attach(a, b, c, d, e, f) taskqgroup_attach(a, b, c, 0, f)
++#define taskqgroup_attach_cpu(a, b, c, d, e, f, g) taskqgroup_attach_cpu(a, b, c, d, 0, g)
++
++#undef NET_EPOCH_ENTER
++#define NET_EPOCH_ENTER(et) NET_EPOCH_ENTER_ET(et)
++#undef NET_EPOCH_EXIT
++#define NET_EPOCH_EXIT(et) NET_EPOCH_EXIT_ET(et)
++#define NET_EPOCH_CALL(f, c) epoch_call(net_epoch_preempt, (c), (f))
++#define NET_EPOCH_ASSERT() MPASS(in_epoch(net_epoch_preempt))
++
++#undef atomic_load_ptr
++#define atomic_load_ptr(p) (*(volatile __typeof(*p) *)(p))
++
++struct taskqgroup_cpu {
++	LIST_HEAD(, grouptask)	tgc_tasks;
++	struct gtaskqueue	*tgc_taskq;
++	int	tgc_cnt;
++	int	tgc_cpu;
++};
++
++struct taskqgroup {
++	struct taskqgroup_cpu tqg_queue[MAXCPU];
++	struct mtx	tqg_lock;
++	const char *	tqg_name;
++	int		tqg_adjusting;
++	int		tqg_stride;
++	int		tqg_cnt;
++};
++
++static inline void taskqgroup_drain_all(struct taskqgroup *tqg)
++{
++	struct gtaskqueue *q;
++
++	for (int i = 0; i < mp_ncpus; i++) {
++		q = tqg->tqg_queue[i].tgc_taskq;
++		if (q == NULL)
++			continue;
++		gtaskqueue_drain_all(q);
++	}
++}
++
++#endif
+diff --git a/src/support.c b/src/support.c
+deleted file mode 100644
+index 18ce91be0f97..000000000000
+--- support.c
++++ /dev/null
+@@ -1,20 +0,0 @@
+-/* SPDX-License-Identifier: BSD-2-Clause-FreeBSD
+- *
+- * Copyright (C) 2015-2021 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
+- */
+-
+-#include "support.h"
+-#include <sys/socketvar.h>
+-#include <sys/protosw.h>
+-#include <net/vnet.h>
+-
+-int
+-sogetsockaddr(struct socket *so, struct sockaddr **nam)
+-{
+-	int error;
+-
+-	CURVNET_SET(so->so_vnet);
+-	error = (*so->so_proto->pr_usrreqs->pru_sockaddr)(so, nam);
+-	CURVNET_RESTORE();
+-	return (error);
+-}
+diff --git a/src/support.h b/src/support.h
+index c4038cf26ff9..5256e6200bf4 100644
+--- support.h
++++ support.h
+@@ -2,6 +2,9 @@
+  *
+  * Copyright (C) 2021 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
+  * Copyright (C) 2021 Matt Dunwoodie <ncon@noconroy.net>
++ *
++ * support.h contains functions that are either not _yet_ upstream in FreeBSD 14, or are shimmed
++ * from OpenBSD. It is different from compat.h, which is strictly for backports.
+  */
+ 
+ #ifndef _WG_SUPPORT
+@@ -15,6 +18,9 @@
+ #include <sys/malloc.h>
+ #include <sys/proc.h>
+ #include <sys/lock.h>
++#include <sys/socketvar.h>
++#include <sys/protosw.h>
++#include <net/vnet.h>
+ #include <vm/uma.h>
+ 
+ /* TODO the following is openbsd compat defines to allow us to copy the wg_*
+@@ -65,7 +71,15 @@ siphash24(const SIPHASH_KEY *key, const void *src, size_t len)
+ #define IFT_WIREGUARD IFT_PPP
+ #endif
+ 
+-int
+-sogetsockaddr(struct socket *so, struct sockaddr **nam);
++static inline int
++sogetsockaddr(struct socket *so, struct sockaddr **nam)
++{
++	int error;
++
++	CURVNET_SET(so->so_vnet);
++	error = (*so->so_proto->pr_usrreqs->pru_sockaddr)(so, nam);
++	CURVNET_RESTORE();
++	return (error);
++}
+ 
+ #endif
+diff --git a/src/wg_cookie.c b/src/wg_cookie.c
+index bf0ce376d15e..ab35ad4a3fc2 100644
+--- wg_cookie.c
++++ wg_cookie.c
+@@ -7,6 +7,7 @@
+ #include <sys/types.h>
+ #include <sys/systm.h>
+ #include <sys/param.h>
++#include <sys/lock.h>
+ #include <sys/rwlock.h>
+ #include <sys/malloc.h> /* Because systm doesn't include M_NOWAIT, M_DEVBUF */
+ #include <sys/socket.h>
+diff --git a/src/wg_noise.c b/src/wg_noise.c
+index 42dcc8748906..23603f0fb9e4 100644
+--- wg_noise.c
++++ wg_noise.c
+@@ -5,9 +5,10 @@
+  */
+ 
+ #include <sys/types.h>
+-#include <sys/systm.h>
+ #include <sys/param.h>
++#include <sys/lock.h>
+ #include <sys/rwlock.h>
++#include <sys/systm.h>
+ 
+ #include "support.h"
+ #include "wg_noise.h"
+-- 
+cgit v1.2.3-11-g984f
+
