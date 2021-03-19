@@ -20,4 +20,5 @@ WRKSRC=		${WRKDIR}/${DISTNAME}/src
 
 PLIST_FILES=	${KMODDIR}/if_wg.ko
 
+
 .include <bsd.port.mk>
