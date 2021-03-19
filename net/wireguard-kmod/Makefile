@@ -5,6 +5,7 @@ PORTVERSION=	0.0.20210317
 CATEGORIES=	net
 MASTER_SITES=	https://git.zx2c4.com/wireguard-freebsd/snapshot/
 DISTNAME=	wireguard-freebsd-367c27cb023e84226c2b54ef5f594997f8e4d70a
+# this is actually 0.0.20210317 + 3 commits for FreeBSD 12.1/12.2 compatibility
 
 MAINTAINER=	decke@FreeBSD.org
 COMMENT=	WireGuard implementation for the FreeBSD kernel
