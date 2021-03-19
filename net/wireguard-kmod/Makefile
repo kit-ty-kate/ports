@@ -14,7 +14,7 @@ LICENSE_FILE=	${WRKDIR}/${DISTNAME}/COPYING
 
 IGNORE_FreeBSD_11=	only for FreeBSD 12.1 and newer
 
-USES=		kmod tar:xz
+USES=		kmod tar:xz uidfix
 
 WRKSRC=		${WRKDIR}/${DISTNAME}/src
 
