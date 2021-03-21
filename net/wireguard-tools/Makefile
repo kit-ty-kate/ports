@@ -15,7 +15,6 @@ FLAVORS=	default lite
 lite_PKGNAMESUFFIX=	-lite
 
 USES=		gmake tar:xz
-USE_RC_SUBR=	wireguard_wgquick
 
 WRKSRC=		${WRKDIR}/${DISTNAME}/src
 
@@ -28,8 +27,7 @@ OPTIONS_DEFAULT=WGQUICK
 OPTIONS_SUB=	yes
 
 WGQUICK_DESC=		wg-quick(8) userland utility
-WGQUICK_RUN_DEPENDS=	bash:shells/bash \
-			wireguard-go:net/wireguard-go
+WGQUICK_RUN_DEPENDS=	bash:shells/bash
 WGQUICK_MAKE_ARGS=	WITH_WGQUICK=yes
 WGQUICK_MAKE_ARGS_OFF=	WITH_WGQUICK=no
 
@@ -37,6 +35,12 @@ WGQUICK_MAKE_ARGS_OFF=	WITH_WGQUICK=no
 USE_RC_SUBR=	wireguard_lite
 OPTIONS_EXCLUDE=WGQUICK
 COMMENT+=	(lite flavor)
+.endif
+
+.include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MWGQUICK}
+USE_RC_SUBR=	wireguard_wgquick
 .endif
 
 post-patch:
