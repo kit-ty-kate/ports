@@ -11,9 +11,9 @@ COMMENT=	Spectrum visualizer for Kodi
 
 LICENSE=	GPLv2+
 
-BUILD_DEPENDS=	glm>=0.9.9.7:math/glm
+BUILD_DEPENDS=	glm>0:math/glm
 
-USES=		cmake compiler:c++14-lang gl kodi localbase
+USES=		cmake localbase compiler:c++14-lang kodi
 USE_CXXSTD=	c++14
 USE_GITHUB=	yes
 GH_ACCOUNT=	xbmc
