@@ -11,9 +11,10 @@ COMMENT=	Shadertoy visualizer for Kodi
 
 LICENSE=	GPLv2+
 
-BUILD_DEPENDS=	glm>=0.9.9.7:math/glm
+BUILD_DEPENDS=	glm>0:math/glm
 
-USES=		cmake localbase gl kodi
+USES=		cmake localbase compiler:c++14-lang kodi
+USE_CXXSTD=	c++14
 USE_GITHUB=	yes
 GH_ACCOUNT=	xbmc
 USE_GL=		egl gl glu
