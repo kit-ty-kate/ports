@@ -1,7 +1,8 @@
-# $FreeBSD: head/multimedia/kodi/Makefile 564049 2021-02-04 17:13:14Z jbeich $
+# $FreeBSD: head/multimedia/kodi/Makefile 568805 2021-03-19 16:46:49Z mat $
 
 PORTNAME=	kodi
 DISTVERSION=	19.0
+DISTVERSIONSUFFIX=	-${KODI_CODENAME}
 CATEGORIES=	multimedia java
 
 MAINTAINER=	yzrh@noema.org
@@ -50,7 +51,6 @@ KODI_CODENAME=	Matrix
 USE_GITHUB=	yes
 GH_ACCOUNT=	xbmc
 GH_PROJECT=	xbmc
-GH_TAGNAME=	${DISTVERSION}-${KODI_CODENAME}
 
 KODI_ARCH_aarch64=	aarch64
 KODI_ARCH_amd64=	x86_64
