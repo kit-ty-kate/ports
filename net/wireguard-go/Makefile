@@ -1,7 +1,7 @@
 # $FreeBSD: head/net/wireguard-go/Makefile 505321 2019-06-29 03:51:13Z tobik $
 
 PORTNAME=	wireguard-go
-PORTVERSION=	0.0.20210212
+PORTVERSION=	0.0.20210323
 PORTEPOCH=	1
 CATEGORIES=	net net-vpn
 MASTER_SITES=	https://git.zx2c4.com/wireguard-go/snapshot/
