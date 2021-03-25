@@ -49,4 +49,13 @@ post-patch:
 		${WRKSRC}/completion/wg-quick.bash-completion \
 		${WRKSRC}/wg-quick/freebsd.bash
 
+install-rc-script:
+	@${ECHO_MSG} "===> Staging rc.d startup script(s)"
+	@for i in ${USE_RC_SUBR}; do \
+		_prefix=${PREFIX}; \
+		[ "${PREFIX}" = "/usr" ] && _prefix="" ; \
+		${INSTALL_SCRIPT} ${WRKDIR}/$${i} ${STAGEDIR}$${_prefix}/etc/rc.d/wireguard; \
+		${ECHO_CMD} "@(root,wheel,0755) $${_prefix}/etc/rc.d/wireguard" >> ${TMPPLIST}; \
+	done
+
 .include <bsd.port.mk>
