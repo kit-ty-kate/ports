@@ -3,7 +3,7 @@
 # $FreeBSD$
 #
 # PROVIDE: wireguard
-# REQUIRE: DAEMON
+# REQUIRE: NETWORKING
 # KEYWORD: shutdown
 #
 # wireguard_enable (bool):    Set to "YES" to enable wireguard.
