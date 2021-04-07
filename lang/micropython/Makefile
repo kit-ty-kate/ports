@@ -1,5 +1,3 @@
-# $FreeBSD$
-
 PORTNAME=	micropython
 PORTVERSION=	1.14
 CATEGORIES=	lang python

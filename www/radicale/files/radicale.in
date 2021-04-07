@@ -1,7 +1,5 @@
 #!/bin/sh
 # Created by: Mark Felder <feld@FreeBSD.org>
-# $FreeBSD: head/www/radicale/files/radicale.in 440516 2017-05-09 21:25:26Z zi $
-#
 
 # PROVIDE: radicale
 # REQUIRE: DAEMON

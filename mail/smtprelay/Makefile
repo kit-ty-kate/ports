@@ -1,5 +1,3 @@
-# $FreeBSD$
-
 PORTNAME=	smtprelay
 DISTVERSIONPREFIX=v
 DISTVERSION=	1.6.0
@@ -17,8 +15,7 @@ USE_RC_SUBR=	smtprelay
 USE_GITHUB=	yes
 GH_ACCOUNT=	decke
 
-GH_TUPLE=	\
-		chrj:smtpd:v0.3.0:chrj_smtpd/vendor/github.com/chrj/smtpd \
+GH_TUPLE=	chrj:smtpd:v0.3.0:chrj_smtpd/vendor/github.com/chrj/smtpd \
 		golang:crypto:eec23a3978ad:golang_crypto/vendor/golang.org/x/crypto \
 		golang:sys:33540a1f6037:golang_sys/vendor/golang.org/x/sys \
 		google:uuid:v1.2.0:google_uuid/vendor/github.com/google/uuid \

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# $FreeBSD$
-#
 # PROVIDE: wireguard
 # REQUIRE: NETWORKING
 # KEYWORD: shutdown

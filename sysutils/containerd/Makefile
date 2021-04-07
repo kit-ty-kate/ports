@@ -1,5 +1,3 @@
-# $FreeBSD$
-
 PORTNAME=	containerd
 DISTVERSIONPREFIX=	
 DISTVERSION=	481103c8793316c118d9f795cde18060847c370e # somewhere between v1.2.6 and v1.2.7 but this is dependency commit in moby v19.03.12...

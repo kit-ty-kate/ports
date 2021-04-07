@@ -1,7 +1,5 @@
-# $FreeBSD$
-
 PORTNAME=	wireguard
-PORTVERSION=	1
+PORTVERSION=	2
 PORTEPOCH=	1
 CATEGORIES=	net net-vpn
 

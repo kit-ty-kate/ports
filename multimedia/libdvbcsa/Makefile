@@ -1,5 +1,4 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
-# $FreeBSD: head/multimedia/libdvbcsa/Makefile 430947 2017-01-09 13:16:49Z amdmi3 $
 
 PORTNAME=	libdvbcsa
 PORTVERSION=	1.1.0

@@ -1,5 +1,3 @@
-# $FreeBSD: head/multimedia/kodi/Makefile 568805 2021-03-19 16:46:49Z mat $
-
 PORTNAME=	kodi
 DISTVERSION=	19.0
 DISTVERSIONSUFFIX=	-${KODI_CODENAME}

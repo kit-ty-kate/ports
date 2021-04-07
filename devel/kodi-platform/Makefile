@@ -1,5 +1,3 @@
-# $FreeBSD: head/devel/kodi-platform/Makefile 473636 2018-06-30 19:52:10Z decke $
-
 PORTNAME=	kodi-platform
 PORTVERSION=	20190726
 CATEGORIES=	devel

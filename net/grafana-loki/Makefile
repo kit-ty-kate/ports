@@ -1,5 +1,3 @@
-# $FreeBSD$
-
 PORTNAME=	grafana-loki
 DISTVERSIONPREFIX=v
 DISTVERSION=	1.4.1

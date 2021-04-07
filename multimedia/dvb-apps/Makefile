@@ -1,8 +1,6 @@
-# $FreeBSD: head/multimedia/dvb-apps/Makefile 506432 2019-07-12 02:25:07Z linimon $
-
 PORTNAME=	dvb-apps
 PORTVERSION=	1.1.2.1505
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	multimedia
 MASTER_SITES=	LOCAL/decke
 DISTNAME=	${PORTNAME}-3d43b280298c

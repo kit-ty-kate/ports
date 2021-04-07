@@ -1,5 +1,3 @@
-# $FreeBSD$
-
 PORTNAME=	docker-engine
 DISTVERSIONPREFIX=	v
 DISTVERSION=	19.03.13
