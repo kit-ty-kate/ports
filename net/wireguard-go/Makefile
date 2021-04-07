@@ -1,5 +1,3 @@
-# $FreeBSD: head/net/wireguard-go/Makefile 505321 2019-06-29 03:51:13Z tobik $
-
 PORTNAME=	wireguard-go
 PORTVERSION=	0.0.20210323
 PORTEPOCH=	1
