@@ -1,0 +1,6 @@
+Read logs from stdin and prints them back to stdout, but prettier.
+
+It supports logfmt and JSON format and does not touch unrecognized
+lines.
+
+WWW: https://github.com/aybabtme/humanlog
