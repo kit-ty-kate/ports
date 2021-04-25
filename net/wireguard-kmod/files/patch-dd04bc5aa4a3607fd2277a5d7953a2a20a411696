@@ -1,4 +1,4 @@
-From a7a2417519e062ed4151e461ccd93312a90d9476 Mon Sep 17 00:00:00 2001
+From dd04bc5aa4a3607fd2277a5d7953a2a20a411696 Mon Sep 17 00:00:00 2001
 From: "Jason A. Donenfeld" <Jason@zx2c4.com>
 Date: Sat, 24 Apr 2021 16:12:23 -0400
 Subject: wg_noise: compile on 32-bit
@@ -7,11 +7,11 @@ The lack of 64bit atomic helpers on 32bit is an annoyance.
 
 Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
 ---
- src/wg_noise.c | 32 ++++++++++++++++++++++++++------
- 1 file changed, 26 insertions(+), 6 deletions(-)
+ src/wg_noise.c | 44 +++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 37 insertions(+), 7 deletions(-)
 
 diff --git a/src/wg_noise.c b/src/wg_noise.c
-index 5ef7a58c3146..9ebff2c5e28c 100644
+index 5ef7a58c3146..7acf1b6ab7cb 100644
 --- wg_noise.c
 +++ wg_noise.c
 @@ -780,11 +780,14 @@ noise_keypair_remote(struct noise_keypair *kp)
@@ -74,6 +74,25 @@ index 5ef7a58c3146..9ebff2c5e28c 100644
 +	NET_EPOCH_EXIT(et);
  	return (keep_key_fresh ? ESTALE : 0);
  }
+ 
+@@ -885,7 +905,17 @@ noise_keypair_encrypt(struct noise_keypair *kp, uint32_t *r_idx, uint64_t nonce,
+ int
+ noise_keypair_decrypt(struct noise_keypair *kp, uint64_t nonce, struct mbuf *m)
+ {
+-	if (ck_pr_load_64(&kp->kp_nonce_recv) >= REJECT_AFTER_MESSAGES ||
++	uint64_t cur_nonce;
++
++#ifdef __LP64__
++	cur_nonce = ck_pr_load_64(&kp->kp_nonce_recv);
++#else
++	rw_rlock(&kp->kp_nonce_lock);
++	cur_nonce = kp->kp_nonce_recv;
++	rw_runlock(&kp->kp_nonce_lock);
++#endif
++
++	if (cur_nonce >= REJECT_AFTER_MESSAGES ||
+ 	    noise_timer_expired(kp->kp_birthdate, REJECT_AFTER_TIME, 0))
+ 		return (EINVAL);
  
 -- 
 cgit v1.2.3-11-g984f
