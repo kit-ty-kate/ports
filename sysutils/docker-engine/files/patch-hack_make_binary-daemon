@@ -1,0 +1,11 @@
+--- hack/make/binary-daemon.orig	2021-05-05 22:15:05 UTC
++++ hack/make/binary-daemon
+@@ -14,7 +14,7 @@ copy_binaries() {
+ 		return
+ 	fi
+ 	echo "Copying nested executables into $dir"
+-	for file in containerd containerd-shim containerd-shim-runc-v2 ctr runc docker-init docker-proxy rootlesskit rootlesskit-docker-proxy dockerd-rootless.sh dockerd-rootless-setuptool.sh; do
++	for file in containerd containerd-shim; do
+ 		cp -f "$(command -v "$file")" "$dir/"
+ 		if [ "$hash" = "hash" ]; then
+ 			hash_files "$dir/$file"
