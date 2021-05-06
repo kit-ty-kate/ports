@@ -7,6 +7,10 @@ You will need a ZFS dataset mounted on /var/lib/docker
 
 For NAT (and in the future port forwarding) to work you will
 need to create the appropiate anchors in your pf.conf
+You will need the following anchors:
+nat-anchor "docker/*"
+rdr-anchor "docker/*"
+anchor "docker/*"
 
 Dockerd will automatically enable nat for each bridge managed
 by it:

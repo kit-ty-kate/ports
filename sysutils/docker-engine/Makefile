@@ -1,5 +1,5 @@
 PORTNAME=	docker-engine
-PORTVERSION=	20.10.6+#forked upstream master @30-04-2021 #59751bb23395a137253ca0b4fb99058ecec5a569
+PORTVERSION=	g20210506#forked upstream master @30-04-2021 #59751bb23395a137253ca0b4fb99058ecec5a569
 DISTVERSIONPREFIX=	v
 DISTVERSIONSUFFIX=	-ce
 CATEGORIES=	sysutils
@@ -21,7 +21,7 @@ USES=		go
 USE_GITHUB=	yes
 GH_ACCOUNT=	gizahNL
 GH_PROJECT=	moby
-GH_TAGNAME=	841deaf
+GH_TAGNAME=	02e304a
 GH_SUBDIR=	src/github.com/docker/docker
 
 GO_PKGNAME=	github.com/docker/docker
