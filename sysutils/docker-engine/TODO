@@ -1,53 +1,25 @@
 Big steps plan
 - start with a new port based on moby (done)
 - hack it to get it compile (done)
-- integrate containerd and runC (see bottom of TODO)
-- runtime testing
+- runtime testing ("some stuff working")
 - cleanup patches / upstreaming
 
-# github.com/docker/docker/vendor/github.com/containerd/cgroups
-vendor/github.com/containerd/cgroups/memory.go:179:33: undefined: unix.SYS_EVENTFD2
-vendor/github.com/containerd/cgroups/memory.go:179:55: undefined: unix.EFD_CLOEXEC
+What's working atm:
+-running FreeBSD docker containers
+-building FreeBSD docker containers (via docker file)
+-bridge networking (uses vnet, auto creates a docker0 bridge, assigns IPs and sets up PF nat rule, most likely lot's of validation still needed, IP conflicts etc.)
 
-# github.com/docker/docker/vendor/github.com/docker/libnetwork
-vendor/github.com/docker/libnetwork/agent.go:448:25: n.getController().getLBIndex undefined (type *controller has no field or method getLBIndex)
-vendor/github.com/docker/libnetwork/agent.go:633:32: too many arguments in call to c.addServiceBinding
-	have (string, string, string, string, string, net.IP, []*PortConfig, []string, []string, net.IP, string)
-	want (string, string, string, string, net.IP, []*PortConfig, []string, net.IP)
-vendor/github.com/docker/libnetwork/agent.go:638:14: c.addContainerNameResolution undefined (type *controller has no field or method addContainerNameResolution)
-vendor/github.com/docker/libnetwork/agent.go:719:32: too many arguments in call to c.rmServiceBinding
-	have (string, string, string, string, string, net.IP, []*PortConfig, []string, []string, net.IP, string, bool, bool)
-	want (string, string, string, string, net.IP, []*PortConfig, []string, net.IP)
-vendor/github.com/docker/libnetwork/agent.go:724:15: c.delContainerNameResolution undefined (type *controller has no field or method delContainerNameResolution)
-vendor/github.com/docker/libnetwork/agent.go:939:33: too many arguments in call to c.addServiceBinding
-	have (string, string, string, string, string, net.IP, []*PortConfig, []string, []string, net.IP, string)
-	want (string, string, string, string, net.IP, []*PortConfig, []string, net.IP)
-vendor/github.com/docker/libnetwork/agent.go:945:15: c.addContainerNameResolution undefined (type *controller has no field or method addContainerNameResolution)
-vendor/github.com/docker/libnetwork/agent.go:954:32: too many arguments in call to c.rmServiceBinding
-	have (string, string, string, string, string, net.IP, []*PortConfig, []string, []string, net.IP, string, bool, bool)
-	want (string, string, string, string, net.IP, []*PortConfig, []string, net.IP)
-vendor/github.com/docker/libnetwork/agent.go:960:15: c.delContainerNameResolution undefined (type *controller has no field or method delContainerNameResolution)
-vendor/github.com/docker/libnetwork/agent.go:973:31: too many arguments in call to c.rmServiceBinding
-	have (string, string, string, string, string, net.IP, []*PortConfig, []string, []string, net.IP, string, bool, bool)
-	want (string, string, string, string, net.IP, []*PortConfig, []string, net.IP)
-vendor/github.com/docker/libnetwork/agent.go:973:31: too many errors
-
-# github.com/docker/docker/vendor/github.com/opencontainers/runc/libcontainer/configs
-vendor/github.com/opencontainers/runc/libcontainer/configs/config.go:128:11: undefined: Cgroup
-
-
+Most likely lot's of gotcha's as my testing didn't go further than "try if it starts, run some commands, exit"
 
 ### LINKS ###
 
+* https://github.com/gizahNL/moby #Source of this port, PR welcome
+* https://github.com/gizahNL/runj #runj fork with support of mounting & running commands post creation (needed to push vnet interfaces into container & set IP)
+
+* https://github.com/samuelkarp/runj
 * https://reviews.freebsd.org/D12270
 * https://github.com/freebsd-docker/docker/commits/freebsd-compat
 * https://github.com/freebsd-docker/containerd/commits/freebsd-compat-0.2
 * https://github.com/digitalloggers/docker-zfs-patches
 * https://github.com/kvasdopil/docker/commits/freebsd-compat
-
-* containerd
- * https://github.com/freebsd-docker/containerd/commits/freebsd-compat-0.2
- * extract patches from freebsd-docker repositories
-
-* runC for FreeBSD: https://github.com/clovertrail/runc/tree/1501-SupportOnFreeBSD
 

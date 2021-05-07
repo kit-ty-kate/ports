@@ -1,19 +1,27 @@
---- hack/make.sh.orig	2020-09-18 09:00:53 UTC
+--- hack/make.sh.orig	2021-05-06 11:52:52 UTC
 +++ hack/make.sh
-@@ -120,7 +120,6 @@ BUILDFLAGS=( ${BUILDFLAGS} "${ORIG_BUILDFLAGS[@]}" )
+@@ -142,14 +142,9 @@ bundle() {
+ main() {
+ 	bundle_dir="bundles"
+ 	if [ -n "${PREFIX}" ]; then
+-		bundle_dir="${PREFIX}/${bundle_dir}"
++		bundle_dir="${GOPATH}/bin"
+ 	fi
  
- LDFLAGS_STATIC_DOCKER="
- 	$LDFLAGS_STATIC
--	-extldflags \"$EXTLDFLAGS_STATIC\"
- "
+-	if [ -z "${KEEPBUNDLE-}" ]; then
+-		echo "Removing ${bundle_dir}/"
+-		rm -rf "${bundle_dir}"/*
+-		echo
+-	fi
+ 	mkdir -p "${bundle_dir}"
  
- if [ "$(uname -s)" = 'FreeBSD' ]; then
-@@ -130,7 +129,7 @@ if [ "$(uname -s)" = 'FreeBSD' ]; then
- 
- 	# "-extld clang" is a workaround for
- 	# https://code.google.com/p/go/issues/detail?id=6845
--	LDFLAGS="$LDFLAGS -extld clang"
-+	LDFLAGS="$LDFLAGS -extld clang -extldflags -Wl,-z,notext"
- fi
- 
- bundle() {
+ 	if [ $# -lt 1 ]; then
+@@ -158,7 +153,7 @@ main() {
+ 		bundles=($@)
+ 	fi
+ 	for bundle in ${bundles[@]}; do
+-		export DEST="${bundle_dir}/$(basename "$bundle")"
++		export DEST="${bundle_dir}/"
+ 		# Cygdrive paths don't play well with go build -o.
+ 		if [[ "$(uname -s)" == CYGWIN* ]]; then
+ 			export DEST="$(cygpath -mw "$DEST")"
