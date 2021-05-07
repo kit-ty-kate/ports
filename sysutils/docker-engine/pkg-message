@@ -1,4 +1,7 @@
-
+message
+[
+{ type: install
+  message: <<EOM
 Docker requires a bit of setup before usage.
 
 You will need a ZFS dataset mounted on /var/lib/docker
@@ -6,16 +9,20 @@ You will need a ZFS dataset mounted on /var/lib/docker
 # zfs create -o mountpoint=/var/lib/docker <zroot>/docker
 
 For NAT (and in the future port forwarding) to work you will
-need to create the appropiate anchors in your pf.conf
-You will need the following anchors:
+need to create the appropiate anchors in your pf.conf:
+
 nat-anchor "docker/*"
 rdr-anchor "docker/*"
 anchor "docker/*"
 
 Dockerd will automatically enable nat for each bridge managed
 by it:
+
 nat on ${iface} from {bridge}:network to any -> (${iface})
 
 Where $iface is the default NIC on the system. This is for 
-network connectivity to docker containers in this early
-port. This should not be needed in future versions of docker.
+network connectivity to docker containers in this early port.
+This should not be needed in future versions of docker.
+EOM
+}
+]
