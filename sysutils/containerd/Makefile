@@ -1,6 +1,5 @@
 PORTNAME=	containerd
-DISTVERSIONPREFIX=	
-DISTVERSION=	14316794ad0a33b8688078f770655c9203e4d80d # master @ 06-05-2021
+DISTVERSION=	g20210506
 CATEGORIES=	sysutils
 
 MAINTAINER=	decke@FreeBSD.org
@@ -14,8 +13,8 @@ USES=		gmake
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	containerd
-GH_PROJECT=	containerd
 GH_SUBDIR=	src/github.com/containerd/containerd
+GH_TAGNAME=	14316794ad0a33b8688078f770655c9203e4d80d
 
 PLIST_FILES=	bin/containerd \
 		bin/containerd-shim \
