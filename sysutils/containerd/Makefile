@@ -8,7 +8,9 @@ COMMENT=	containerd part of docker
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	bash:shells/bash
+BUILD_DEPENDS=	bash:shells/bash \
+		git:devel/git \
+		go:lang/go
 USES=		gmake
 
 USE_GITHUB=	yes
