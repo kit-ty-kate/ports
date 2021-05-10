@@ -22,11 +22,13 @@ GH_TAGNAME=	02e304a
 GH_SUBDIR=	src/github.com/docker/docker
 
 GO_PKGNAME=	github.com/docker/docker
-
 GO_TARGET=	./bin/dockerd
+
+MAKE_ENV+=	DOCKER_GITCOMMIT=${GH_TAGNAME}
+
 PLIST_FILES=	bin/dockerd
 
 do-build:
-	@cd ${GO_WRKSRC} && export DOCKER_GITCOMMIT=${GH_TAGNAME} && ${SETENV} ${MAKE_ENV} ${GO_ENV} ./hack/make.sh binary
+	@cd ${GO_WRKSRC} && ${SETENV} ${MAKE_ENV} ${GO_ENV} ./hack/make.sh binary
 
 .include <bsd.port.mk>
