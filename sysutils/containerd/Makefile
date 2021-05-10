@@ -9,7 +9,6 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	bash:shells/bash \
-		git:devel/git \
 		go:lang/go
 USES=		gmake
 

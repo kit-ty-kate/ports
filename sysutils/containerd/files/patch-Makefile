@@ -1,0 +1,13 @@
+--- Makefile.orig	2021-05-05 17:18:34 UTC
++++ Makefile
+@@ -21,8 +21,8 @@ DESTDIR ?= /usr/local
+ TEST_IMAGE_LIST ?=
+ 
+ # Used to populate variables in version package.
+-VERSION=$(shell git describe --match 'v[0-9]*' --dirty='.m' --always)
+-REVISION=$(shell git rev-parse HEAD)$(shell if ! git diff --no-ext-diff --quiet --exit-code; then echo .m; fi)
++VERSION=1431679
++REVISION=14316794ad0a33b8688078f770655c9203e4d80d
+ PACKAGE=github.com/containerd/containerd
+ SHIM_CGO_ENABLED ?= 0
+ 
