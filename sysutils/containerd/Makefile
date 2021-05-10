@@ -4,7 +4,7 @@ DISTVERSIONPREFIX=v
 CATEGORIES=	sysutils
 
 MAINTAINER=	decke@FreeBSD.org
-COMMENT=	containerd part of docker
+COMMENT=	Open and reliable container runtime
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE

@@ -4,6 +4,4 @@ Linux and Windows, which can manage the complete container lifecycle of
 its host system: image transfer and storage, container execution and
 supervision, low-level storage and network attachments, etc.
 
-Used to run docker containers
-
-WWW: https://github.com/containerd/containerd
+WWW: https://containerd.io/
