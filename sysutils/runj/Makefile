@@ -7,6 +7,7 @@ COMMENT=	Experimental, proof-of-concept OCI-compatible runtime for jails
 
 LICENSE=	APACHE20 BSD2CLAUSE BSD3CLAUSE MIT
 LICENSE_COMB=	multi
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 USE_GITHUB=	yes
