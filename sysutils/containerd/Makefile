@@ -18,7 +18,9 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	containerd
 GH_SUBDIR=	src/github.com/containerd/containerd
 
-MAKE_ENV=	${GO_ENV} GOFLAGS="${GO_BUILDFLAGS}"
+MAKE_ENV=	${GO_ENV} \
+		GOFLAGS="${GO_BUILDFLAGS}" \
+		VERSION="${DISTVERSION}"
 
 PLIST_FILES=	bin/containerd \
 		bin/containerd-shim \
