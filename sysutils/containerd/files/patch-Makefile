@@ -6,8 +6,8 @@
  # Used to populate variables in version package.
 -VERSION=$(shell git describe --match 'v[0-9]*' --dirty='.m' --always)
 -REVISION=$(shell git rev-parse HEAD)$(shell if ! git diff --no-ext-diff --quiet --exit-code; then echo .m; fi)
-+VERSION=1.5.0-freebsd
-+REVISION=1.5.0-freebsd
++VERSION=8c906ff
++REVISION=8c906ff108ac28da23f69cc7b74f8e7a470d1df0
  PACKAGE=github.com/containerd/containerd
  SHIM_CGO_ENABLED ?= 0
  
