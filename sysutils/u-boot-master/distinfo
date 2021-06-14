@@ -1,3 +1,3 @@
-TIMESTAMP = 1622484135
-SHA256 (u-boot/u-boot-2021.07-rc3.tar.bz2) = 1f64505dfb83bf63f3bf335bc4c284d1414caaf0f421d23fe3d9baddae086203
-SIZE (u-boot/u-boot-2021.07-rc3.tar.bz2) = 17259078
+TIMESTAMP = 1623658705
+SHA256 (u-boot/u-boot-2021.07-rc4.tar.bz2) = 176d1d89838059e7aa6694b8b721c2b34c4c0f40ac25586aec122ce11ff7da2e
+SIZE (u-boot/u-boot-2021.07-rc4.tar.bz2) = 17266858
