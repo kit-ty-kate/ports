@@ -1,6 +1,6 @@
-TIMESTAMP = 1624298801
-SHA256 (nkanaev-yarr-v2.0_GH0.tar.gz) = 6f4d8561e5737d8d85458de2c5d7ff3a7a09539b4f60b9e03969a76f1c2d5695
-SIZE (nkanaev-yarr-v2.0_GH0.tar.gz) = 923138
+TIMESTAMP = 1624304403
+SHA256 (nkanaev-yarr-v2.0-0c5385c_GH0.tar.gz) = 83558d4962d2e27195fc0a484c2c8b45bb8f8278ded9d110278ca4c141e34898
+SIZE (nkanaev-yarr-v2.0-0c5385c_GH0.tar.gz) = 924613
 SHA256 (golang-net-d3edc9973b7e_GH0.tar.gz) = 3f1ba89024d8a03881a5f308e820f1beb0fa6f3a03eff3dca42c4cc9f59869f9
 SIZE (golang-net-d3edc9973b7e_GH0.tar.gz) = 1174466
 SHA256 (golang-sys-eeed37f84f13_GH0.tar.gz) = f656a17b77d0b695e8bb6537e3650e971f33222271da42419c60e49a6ceae9c3
