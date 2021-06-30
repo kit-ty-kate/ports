@@ -1,5 +1,5 @@
 PORTNAME=	docker-engine
-PORTVERSION=	g20210527
+PORTVERSION=	g20210630
 CATEGORIES=	sysutils
 
 MAINTAINER=	gijs@peskens.net
@@ -16,9 +16,9 @@ RUN_DEPENDS=	containerd:sysutils/containerd \
 USES=		go
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	gizahNL
+GH_ACCOUNT=	kit-ty-kate
 GH_PROJECT=	moby
-GH_TAGNAME=	c23fb4b2
+GH_TAGNAME=	a3fce534e7
 GH_SUBDIR=	src/github.com/docker/docker
 
 GO_PKGNAME=	github.com/docker/docker
